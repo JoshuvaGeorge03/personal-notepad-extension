@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "Personal Notepad",
+    "version": "0.0.1",
+    "description": "This is personal note pad extension",
+    "content_scripts": [
+        {
+        
+        }
+    ]
+}
