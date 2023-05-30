@@ -1,11 +1,38 @@
 {
-    "manifest_version": 3,
-    "name": "Personal Notepad",
-    "version": "0.0.1",
-    "description": "This is personal note pad extension",
-    "content_scripts": [
-        {
+	"manifest_version": 3,
+	"name": "Personal Notepad",
+	"version": "0.0.1",
+	"description": "This is personal note pad extension",
+	"content_scripts": [
+		{
+			"js": ["contentScript.bundle.js"],
+			"matches": ["<all_urls>"],
+			"all_frames": true
+		}
+	],
+	"icons": {
+		"16": "16.png",
+		"32": "32.png",
+		"48": "48.png",
+		"128": "128.png"
+	},
+	"action": {
+		"default_icon": {
+			"16": "16.png",
+			"32": "32.png",
+			"48": "48.png",
+			"128": "128.png"
+		},
+        "default_title": "Personal Notepad",
+        "default_popup": "popup.html"
+	},
+    "background": {
+        "service_worker": "background.bundle.js"
+    },
+    "commands": {
         
-        }
-    ]
+    },
+    "permissions":[],
+    "host_permissions": [],
+    "author": "Joshuva George.M"
 }
