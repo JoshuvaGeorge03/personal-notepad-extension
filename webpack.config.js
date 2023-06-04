@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	entry: {
@@ -12,6 +13,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'notepad-extension-build'),
 		filename: '[name].bundle.js',
+		assetModuleFilename: '[name][ext]',
 		clean: true,
 	},
 	module: {
@@ -24,6 +26,10 @@ module.exports = {
 					},
 				],
 			},
+			{
+				test: /manifest.json/,
+				type: 'asset/resource',
+			},
 		],
 	},
 	plugins: [
@@ -31,6 +37,23 @@ module.exports = {
 			chunks: ['popup'],
 			template: './src/popup/index.html',
 			minify: 'auto',
+			filename: 'popup.html',
+		}),
+		new HtmlWebpackPlugin({
+			chunks: ['options'],
+			template: './src/options/index.html',
+			minify: 'auto',
+			filename: 'options.html',
+		}),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: path.resolve(__dirname, 'src', 'public'),
+				},
+			],
 		}),
 	],
+	resolve: {
+		extensions: ['.ts', '.tsx', '...'],
+	},
 };
