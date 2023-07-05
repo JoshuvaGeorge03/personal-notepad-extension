@@ -7,14 +7,16 @@ import Section from '../Components/Section';
 import { editorNameSpace } from '../constants';
 
 export function App() {
-    return <>
-        <Section>
-            <LexicalComposer initialConfig={{ namespace: editorNameSpace, onError: (e) => console.log('e', e) }}>
-                <RichTextPlugin contentEditable={<ContentEditable />} ErrorBoundary={LexicalErrorBoundary} placeholder={<div>edit me</div>} />
-            </LexicalComposer>
-        </Section>
-        <Section>
-            List
-        </Section>
-    </>
+    return (
+        <>
+            <Section>
+                <LexicalComposer initialConfig={{ namespace: editorNameSpace, onError: (e) => console.log('e', e) }}>
+                    <RichTextPlugin contentEditable={<ContentEditable />} ErrorBoundary={LexicalErrorBoundary} placeholder={<div>edit me</div>} />
+                </LexicalComposer>
+            </Section>
+            <Section>
+                List
+            </Section>
+        </>
+    );
 }
