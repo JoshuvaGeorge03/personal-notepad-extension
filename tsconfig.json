@@ -17,6 +17,7 @@
 		"allowUnreachableCode": false,
 		"noFallthroughCasesInSwitch": true,
 		"allowSyntheticDefaultImports": true,
-		"jsx": "react"
+		"jsx": "react",
+		"typeRoots": ["./src/typings/*", "./node_modules/@types/*"]
 	}
 }

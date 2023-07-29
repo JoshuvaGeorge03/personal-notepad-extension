@@ -1,8 +1,9 @@
 {
-    "editorconfig": true,
-    "semi": true,
-    "bracketSpacing": true,
-    "jsxSingleQuote": false,
-    "singleQuote": true,
-    "useTabs": true
+	"editorconfig": true,
+	"semi": true,
+	"bracketSpacing": true,
+	"jsxSingleQuote": false,
+	"singleQuote": true,
+	"useTabs": true,
+	"printWidth": 60
 }

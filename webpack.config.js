@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 	entry: {
@@ -30,6 +31,15 @@ module.exports = {
 				test: /manifest.json/,
 				type: 'asset/resource',
 			},
+			{
+				test: /\.css$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+					},
+				],
+			},
 		],
 	},
 	plugins: [
@@ -51,6 +61,9 @@ module.exports = {
 					from: path.resolve(__dirname, 'src', 'public'),
 				},
 			],
+		}),
+		new MiniCssExtractPlugin({
+			filename: '[name].bundle.css',
 		}),
 	],
 	resolve: {

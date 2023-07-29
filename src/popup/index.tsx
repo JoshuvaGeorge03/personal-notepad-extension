@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './Pages/page';
+import './index.css';
 
 function Root() {
     return <React.StrictMode>
